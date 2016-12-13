@@ -1,0 +1,4 @@
+aoki,ebina,52
+horie,yokohama,55
+yamaguti,tokyo,43
+miwa,kamihosikawa,42
