@@ -71,10 +71,10 @@ class AlohaWindowMan implements ActionListener{
 	} catch(IOException e) {
 		System.out.println("IO error.");
 	}
-
-	fileName.setText("open");
+fileName.setText("open");
 }else if(cmd.equals("Save")){
 	fileName.setText("save");
+	
 }
 }
 }
