@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Canvas</title>
+</head>
+<body>
+	<h1>Canvas</h1>
+	<canvas id="canvas" width="500" height="500"></canvas>
+	<script>
+    var canvas = document.getElementById('canvas');
+    var ctx = canvas.getContext('2d');
+
+    ctx.fillStyle = "rgba(255, 0, 0,0.5)";
+/*    ctx.fillRect(200, 100, 200, 100);
+    ctx.fillRect(300, 300, 200, 100);
+    ctx.strokeRect(300, 200, 100, 100)
+	ctx.clearRect(300, 100, 50, 50)
+
+	ctx.beginPath();
+	ctx.moveTo(75,50);            // 最初の点
+	ctx.lineTo(100,75);            // 2番目の点
+	ctx.lineTo(100,25);            // 3番目の点
+	ctx.fill();                    // 色をつける
+
+	ctx.moveTo(150,50);
+	ctx.lineTo(125,75);
+	ctx.lineTo(125,25);
+	ctx.closePath();            // パスをとじる
+	ctx.stroke();   	// 線だけで描く
+
+	ctx.beginPath();
+	ctx.moveTo(100,25);            // 最初の点
+	ctx.lineTo(125,25);            // 2番目の点
+	ctx.lineTo(110,0);            // 3番目の点
+	ctx.fill();
+
+	ctx.beginPath();
+	ctx.moveTo(100,75);            // 最初の点
+	ctx.lineTo(130,75);            // 2番目の点
+	ctx.lineTo(110,120);            // 3番目の点
+	ctx.fill(); 
+	*/
+
+	ctx.beginPath();
+	ctx.arc(500, 200, 100, 0, Math.PI*0.5, true);
+	ctx.fill();
+</script>
+</body>
+</html>
