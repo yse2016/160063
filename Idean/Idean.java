@@ -9,7 +9,7 @@ public class Idean{
 	}
 }
 
-class IdeaMan{
+class IdeaMan implements ActionListener{
 	JFrame frame;
 	JPanel panel;
 	JButton button1;
@@ -21,6 +21,16 @@ class IdeaMan{
 		frame.setSize(400,400);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+		panel = new JPanel();
+		button1 = new JButton("hello");
+		button2 = new JButton("aloha");
+
+		panel.add(button1);
+		panel.add(button2);
+		frame.add(panel);
+
 		frame.setVisible(true);
+	}
+	public void actionPerformed(ActionEvent ae){
 	}
 }
