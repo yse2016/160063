@@ -12,8 +12,8 @@ public class Idean{
 class IdeaMan implements ActionListener{
 	JFrame frame;
 	JPanel panel;
-	JButton button1;
-	JButton button2;
+	JButton hyozi;
+	JButton save;
 	JTextArea textArea;
 	public IdeaMan(){
 		frame = new JFrame("TextEditor");
@@ -22,11 +22,11 @@ class IdeaMan implements ActionListener{
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		panel = new JPanel();
-		button1 = new JButton("hello");
-		button2 = new JButton("aloha");
+		hyozi = new JButton("単語２個表示");
+		save = new JButton("メモを保存");
 
-		panel.add(button1);
-		panel.add(button2);
+		panel.add(hyozi);
+		panel.add(save);
 		frame.add(panel);
 
 		frame.setVisible(true);
