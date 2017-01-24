@@ -24,9 +24,11 @@ class IdeaMan implements ActionListener{
 		panel = new JPanel();
 		hyozi = new JButton("単語２個表示");
 		save = new JButton("メモを保存");
+		textArea = new JTextArea(10,30);
 
 		panel.add(hyozi);
 		panel.add(save);
+		panel.add(textArea);
 		frame.add(panel);
 
 		frame.setVisible(true);
