@@ -2,6 +2,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import java.io.*;
+import java.util.*;
 
 public class Idean{
 	public static void main(String[] args){
@@ -19,6 +20,9 @@ class IdeaMan implements ActionListener{
 	JTextField tf1;
 	JTextField tf2;
 	String textdata;
+	String[] words = new String[20];
+	int i;
+	int n;
 	public IdeaMan(){
 		frame = new JFrame("TextEditor");
 		frame.setLocation(400,400);
@@ -49,7 +53,18 @@ class IdeaMan implements ActionListener{
 	public void actionPerformed(ActionEvent ae){
 		String cmd = ae.getActionCommand();
 
-		if(cmd.equals("hyozi")){
+		if(cmd.equals("Save")){
+			fc = new JFileChooser();
+			fc.setCurrentDirectory(new File("."));
+			int ret = fc.showSaveDialog(frame);
+			if(ret == JFileChooser.APPROVE_OPTION){
+				File file = fc.getSelectedFile();
+
+				textdata = file.getAbsolutePath();
+			}
+		}else if(cmd.equals("hyozi")){
+			Random rnd = new Random();
+			if(n<=1){
 			fc = new JFileChooser();
 			fc.setCurrentDirectory(new File("."));
 			int ret = fc.showOpenDialog(frame);
@@ -60,15 +75,22 @@ class IdeaMan implements ActionListener{
 			}
 		try {
                 // 1. ファイルを準備する
-			File inFile = new File("data.txt");
+			File inFile = new File(textdata);
 			FileReader fr = new FileReader(inFile);
 			BufferedReader br = new BufferedReader(fr);
                 // 2. ファイルからデータを読み取って表示する
 			String line ;
+			StringTokenizer token;
 			textArea .setText("");
 			while ((line=br.readLine()) != null) {
-				textArea.append(line);
-				textArea.append("\n");
+				token = new StringTokenizer(line,",");
+
+				while(token.hasMoreTokens()){
+					words[i] = token.nextToken();
+					i++;
+				}
+				//textArea.append(line);
+				//textArea.append("\n");
 			}             
                 // 3. ファイルを閉じる
 			br.close();
@@ -76,6 +98,12 @@ class IdeaMan implements ActionListener{
 			System.out.println("ファイル読み取りエラー");
 			e.printStackTrace();
 		}
+		n=2;
+	}
+	int wordR1 = rnd.nextInt(i);
+	int wordR2 = rnd.nextInt(i);
+	tf1.setText(words[wordR1]);
+	tf2.setText(words[wordR2]);
 		}
 	}
 }
