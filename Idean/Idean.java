@@ -62,6 +62,19 @@ class IdeaMan implements ActionListener{
 
 				textdata = file.getAbsolutePath();
 			}
+			try{
+				File f = new File(textdata);
+				FileWriter fw = new FileWriter(f);
+				BufferedWriter bw = new BufferedWriter(fw);
+				PrintWriter pw = new PrintWriter(bw);
+				String data = textArea.getText();
+
+				pw.println(data);
+
+				pw.close();
+			}catch(Exception e){
+				e.printStackTrace();
+			}
 		}else if(cmd.equals("hyozi")){
 			Random rnd = new Random();
 			if(n<=1){
