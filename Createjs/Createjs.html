@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+</head>
+<body>
+  <canvas id="myCanvas" width="500" height="200"></canvas>
+  <script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
+  <script>
+    window.addEventListener("load", init);
+    function init() {
+      var stage = new createjs.Stage("myCanvas");
+
+      var shape = new createjs.Shape();
+      shape.graphics.beginFill("green");
+      shape.graphics.drawPolyStar(0, 0, 50, 5, 0.6, -90);
+      stage.addChild(shape);
+      shape.x = 50;
+      shape.y = 100;
+
+      var shape2 = new createjs.Shape();
+      shape2.graphics.beginFill("green");
+      shape2.graphics.drawPolyStar(0, 0, 55, 7, 0.6, -90);
+      stage.addChild(shape2);
+      shape2.x = 130;
+      shape2.y = 30;
+
+      var shape3 = new createjs.Shape();
+      shape3.graphics.beginFill("green");
+      shape3.graphics.drawPolyStar(0, 0, 50, 7, 0.6, -90);
+      stage.addChild(shape3);
+      shape3.x = 210;
+      shape3.y = 140;
+
+      var shape4 = new createjs.Shape();
+      shape4.graphics.beginFill("green");
+      shape4.graphics.drawPolyStar(0, 0, 50, 6, 0.6, -90);
+      stage.addChild(shape4);
+      shape4.x = 75;
+      shape4.y = 170;
+
+      var shape5 = new createjs.Shape();
+      shape5.graphics.beginFill("green");
+      shape5.graphics.drawPolyStar(0, 0, 50, 10, 0.6, -90);
+      stage.addChild(shape5);
+      shape5.x = 150;
+      shape5.y = 120;
+
+      var shape6 = new createjs.Shape();
+      shape6.graphics.beginFill("green");
+      shape6.graphics.drawPolyStar(0, 0, 50, 7, 0.6, -90);
+      stage.addChild(shape6);
+      shape6.x = 135;
+      shape6.y = 210;
+
+	var shape7 = new createjs.Shape();
+	shape7.graphics.beginFill("green");
+	shape7.graphics.drawRect(400 , 0, 100, 200);
+	stage.addChild(shape7);
+
+      var shape8 = new createjs.Shape();
+      shape8.graphics.beginFill("green");
+      shape8.graphics.drawPolyStar(0, 0, 50, 7, 0.6, -90);
+      stage.addChild(shape8);
+      shape8.x = 240;
+      shape8.y = 70;
+
+      var shape9 = new createjs.Shape();
+      shape9.graphics.beginFill("green");
+      shape9.graphics.drawPolyStar(0, 0, 50, 7, 0.6, -90);
+      stage.addChild(shape9);
+      shape9.x = 310;
+      shape9.y = 150;
+
+      var shape10 = new createjs.Shape();
+      shape10.graphics.beginFill("green");
+      shape10.graphics.drawPolyStar(0, 0, 50, 7, 0.6, -90);
+      stage.addChild(shape10);
+      shape10.x = 340;
+      shape10.y = 50;
+
+      var dot = new createjs.Shape();
+      dot.graphics.beginFill("blue").drawCircle(0, 0, 5);
+      stage.addChild(dot);
+
+      createjs.Ticker.addEventListener("tick", handleTick);
+      function handleTick() {
+
+        dot.x = stage.mouseX;
+        dot.y = stage.mouseY;
+
+	var point = shape.globalToLocal(stage.mouseX, stage.mouseY);
+	var point2 = shape2.globalToLocal(stage.mouseX, stage.mouseY);
+        var point3 = shape3.globalToLocal(stage.mouseX, stage.mouseY);
+	var point4 = shape4.globalToLocal(stage.mouseX, stage.mouseY);
+	var point5 = shape5.globalToLocal(stage.mouseX, stage.mouseY);
+	var point6 = shape6.globalToLocal(stage.mouseX, stage.mouseY);
+	var point7 = shape7.globalToLocal(stage.mouseX, stage.mouseY);
+	var point8 = shape8.globalToLocal(stage.mouseX, stage.mouseY);
+	var point9 = shape9.globalToLocal(stage.mouseX, stage.mouseY);
+	var point10 = shape10.globalToLocal(stage.mouseX, stage.mouseY);
+
+        var isHit = shape.hitTest(point.x, point.y);
+        var isHit2 = shape2.hitTest(point2.x, point2.y);
+        var isHit3 = shape3.hitTest(point3.x, point3.y);
+        var isHit4 = shape4.hitTest(point4.x, point4.y);
+        var isHit5 = shape5.hitTest(point5.x, point5.y);
+        var isHit6 = shape6.hitTest(point6.x, point6.y);
+        var isHit7 = shape7.hitTest(point7.x, point7.y);
+        var isHit8 = shape8.hitTest(point8.x, point8.y);
+        var isHit9 = shape9.hitTest(point9.x, point9.y);
+        var isHit10 = shape10.hitTest(point10.x, point10.y);
+
+        if (isHit == true) {
+          shape.graphics.clear()
+                  .beginFill("Red")
+                  .drawPolyStar(0, 0, 50, 5, 0.6, -90);
+          alert("GameOver");
+        } else {
+          shape.graphics.clear()
+                  .beginFill("green")
+                  .drawPolyStar(0, 0, 50, 5, 0.6, -90);
+        }
+        if (isHit2 == true) {
+          shape2.graphics.clear()
+                  .beginFill("Red")
+                  .drawPolyStar(0, 0, 55, 7, 0.6, -90);
+          alert("GameOver");
+        } else {
+          shape2.graphics.clear()
+                  .beginFill("green")
+                  .drawPolyStar(0, 0, 55, 7, 0.6, -90);
+        }
+        if (isHit3 == true) {
+          shape3.graphics.clear()
+                  .beginFill("Red")
+                  .drawPolyStar(0, 0, 50, 7, 0.6, -90);
+          alert("GameOver");
+        } else {
+          shape3.graphics.clear()
+                  .beginFill("green")
+                  .drawPolyStar(0, 0, 50, 7, 0.6, -90);
+        }
+        if (isHit4 == true) {
+          shape4.graphics.clear()
+                  .beginFill("Red")
+                  .drawPolyStar(0, 0, 50, 6, 0.6, -90);
+          alert("GameOver");
+        } else {
+          shape4.graphics.clear()
+                  .beginFill("green")
+                  .drawPolyStar(0, 0, 50, 6, 0.6, -90);
+        }
+        if (isHit5 == true) {
+          shape5.graphics.clear()
+                  .beginFill("Red")
+                  .drawPolyStar(0, 0, 50, 10, 0.6, -90);
+          alert("GameOver");
+        } else {
+          shape5.graphics.clear()
+                  .beginFill("green")
+                  .drawPolyStar(0, 0, 50, 10, 0.6, -90);
+        }
+        if (isHit6 == true) {
+          shape6.graphics.clear()
+                  .beginFill("Red")
+                  .drawPolyStar(0, 0, 50, 7, 0.6, -90);
+          alert("GameOver");
+        } else {
+          shape6.graphics.clear()
+                  .beginFill("green")
+                  .drawPolyStar(0, 0, 50, 7, 0.6, -90);
+        }
+        if (isHit7 == true) {
+          shape7.graphics.clear()
+	shape7.graphics.beginFill("yellow");
+	shape7.graphics.drawRect(400 , 0, 100, 200);
+          alert("Clear!");
+        } else {
+          shape7.graphics.clear()
+	shape7.graphics.beginFill("green");
+	shape7.graphics.drawRect(400 , 0, 100, 200);
+        }
+        if (isHit8 == true) {
+          shape8.graphics.clear()
+                  .beginFill("Red")
+                  .drawPolyStar(0, 0, 50, 7, 0.6, -90);
+          alert("GameOver");
+        } else {
+          shape8.graphics.clear()
+                  .beginFill("green")
+                  .drawPolyStar(0, 0, 50, 7, 0.6, -90);
+        }
+        if (isHit9 == true) {
+          shape9.graphics.clear()
+                  .beginFill("Red")
+                  .drawPolyStar(0, 0, 50, 7, 0.6, -90);
+          alert("GameOver");
+        } else {
+          shape9.graphics.clear()
+                  .beginFill("green")
+                  .drawPolyStar(0, 0, 50, 7, 0.6, -90);
+        }
+        if (isHit10 == true) {
+          shape10.graphics.clear()
+                  .beginFill("Red")
+                  .drawPolyStar(0, 0, 50, 7, 0.6, -90);
+          alert("GameOver");
+        } else {
+          shape10.graphics.clear()
+                  .beginFill("green")
+                  .drawPolyStar(0, 0, 50, 7, 0.6, -90);
+        }
+        stage.update();
+      }
+    }
+  </script>
+</body>
+</html>
